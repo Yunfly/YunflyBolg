@@ -1,5 +1,4 @@
 import { query as queryUsers, queryCurrent } from '../services/user';
-import { routerRedux } from 'dva/router'
 
 export default {
   namespace: 'user',

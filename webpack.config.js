@@ -1,17 +1,16 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = (webpackConfig, env) => {
-  const production = env === 'production'
+module.exports = (webpackConfig) => {
+  // eslint-disable-next-line
   webpackConfig.plugins = webpackConfig.plugins.concat([
     new HtmlWebpackPlugin({
       title: '小微服',
       template: `${__dirname}/src/entry.ejs`,
       filename: 'index.html',
-      favicon: `${__dirname}/src/assets/logo.png`,  
-      hash: true
+      favicon: `${__dirname}/src/assets/logo.png`,
+      hash: true,
     }),
-  ])
+  ]);
 
   return webpackConfig;
-}
+};

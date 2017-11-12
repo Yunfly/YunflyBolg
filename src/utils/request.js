@@ -13,6 +13,7 @@ function checkStatus(response) {
 function buildResult(response) {
   return response.json().then((result) => {
     if (result.code >= 200 && result.code < 300) {
+      // eslint-disable-next-line
       result.success = true;
       return result;
     } else {
@@ -48,13 +49,13 @@ export default function request(url, options) {
     .then(checkStatus)
     .then(buildResult)
     .catch((error) => {
-      //构建错误结果对象
+      // 构建错误结果对象
       const result = { success: false, url };
       if ('code' in error) result.code = error.code;
       if ('stack' in error) result.stack = error.stack;
       if ('message' in error) result.message = error.message;
 
-      //提示错误内容
+      // 提示错误内容
       if (result.message) {
         notification.error({
           message: `请求错误: ${result.url}`,
